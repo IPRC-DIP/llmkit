@@ -17,6 +17,9 @@ project:
         - file: Comparing Different LLM Training Frameworks\OpenRLHF.md
         - file: Comparing Different LLM Training Frameworks\Torchtune.md
         - file: Comparing Different LLM Training Frameworks\TRL.md
+    - title: Datasets
+      children:
+        - file: Datasets/format.md
 
   bibliography:
     - refs.bib
