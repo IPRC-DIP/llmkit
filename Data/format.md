@@ -3,6 +3,11 @@ title: "Datasets format"
 subject: Data
 license: CC-BY-4.0
 keywords: datasets
+date: 2024-12-03
+authors:
+  - name: Ziyuan Nan
+    email: nanziyuan21s@ict.ac.cn
+    affiliation: ICT CAS
 ---
 
 ## Standard Dataset format
