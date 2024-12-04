@@ -1,11 +1,11 @@
 ---
 title: "Datasets format"
-subject: Datasets
+subject: Data
 license: CC-BY-4.0
 keywords: datasets
 ---
 
-## Dataset format
+## Standard Dataset format
 
 The dataset should be stored in a JSONL (JSON Lines) file format, where each line represents a separate JSON object.
 

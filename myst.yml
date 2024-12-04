@@ -17,9 +17,10 @@ project:
         - file: Comparing Different LLM Training Frameworks\OpenRLHF.md
         - file: Comparing Different LLM Training Frameworks\Torchtune.md
         - file: Comparing Different LLM Training Frameworks\TRL.md
-    - title: Datasets
+    - title: Data
       children:
-        - file: Datasets/format.md
+        - file: Data/format.md
+        - file: Data/contribution.md
 
   bibliography:
     - refs.bib
