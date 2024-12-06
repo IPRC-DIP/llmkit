@@ -2,7 +2,9 @@
 version: 1
 project:
   id: bac6f5d8-9e50-44c9-8651-5b2ef9e6cd22
-  title: "LLM Insights: Experiments & Best Practices"
+  title: "LLM Kit: Tools & Best Practices"
+  authors:
+    - name: IPRC program synthesis
   # description:
   # keywords: []
   # github:
@@ -13,6 +15,7 @@ project:
     - title: Data
       children:
         - file: Data/format.md
+        - file: Data/inference.md
         - file: Data/contribution.md
     - title: Comparing   Different  LLM  Training   Frameworks
       children:

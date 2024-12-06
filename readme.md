@@ -1,5 +1,5 @@
 ---
-title: "LLM Insights: Experiments & Best Practices 🧙"
+title: "LLM Kit: Tools & Best Practices 🧙"
 subject: Tutorial
 license: CC-BY-4.0
 keywords: llm, myst, markdown
