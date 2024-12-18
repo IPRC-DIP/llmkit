@@ -93,11 +93,25 @@ Please note that compared to other frameworks, **OpenRLHF consumes more GPU memo
 
 The training time for the two epochs are `5h07m54s` and `5h07m30s` respectively on the 8 GPUs from `r8a100-a[02,03]` respectively. It appears that training on `r8nv-gpu-dist` is faster than on `r8nv-gpu-hw`.
 
-### Evaluation results
+### Evaluation
 
 Currently, a total of 3,765 problems from the test set are evaluated, with problems lacking solutions filtered out. For each problem, 10 pieces of code are generated. The `sampling temperature` is set to `0.6`, and `top_p` is set to `0.95`. 
 
+The inference stage is run on 4 GPUs from the node `r8nv-gpu-hw-80g` with the following command:
+
+```bash
+python -m llmkit_data.cli.sample --prompts $DATAFILE_PATH --out $SAMPLE_PATH --model $MODEL_PATH --gpu_per_model 4
+```
+
+, and the evaluation stage is run on the node `r8cpu` with 32 CPU cores with the following command (`$APPS_PATH` is the folder containing train and test jsonl files, and remember not to put other data files in this folder):
+
+```bash
+python -m llmkit_data.cli.eval_apps --samples $SAMPLE_PATH --out $RESULT_PATH --apps $APPS_PATH
+```
+
 Inference is conducted using `vllm`, taking `30m43s` for code generation, and approximately 39 minutes for evaluation. 
+
+**Results:**
 
 The pass@1, pass@5, and pass@10 statistics across different difficulty levels are presented in the table below:
 
