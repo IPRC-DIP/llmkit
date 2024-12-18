@@ -108,3 +108,13 @@ The pass@1, pass@5, and pass@10 statistics across different difficulty levels ar
 | interview    | 0.08309497616428309  | 0.17761538058567763 | 0.22845617895122847 |
 | competition  | 0.011612903225806452 | 0.04094982078853047 | 0.06129032258064516 |
 
+
+
+For comparison, I also run an experiment for the original `deepseek-coder-6.7b-instruct` model. Its inference stage costs `47m50s` and evaluation stage costs around 53 minutes. The inference is slower since it sometimes generates additional text, but the reason for slower evaluation stage is currently unknown. The pass@k statistics are shown in the following table:
+
+| Difficulty   | pass@1               | pass@5               | pass@10             |
+| ------------ | -------------------- | -------------------- | ------------------- |
+| total        | 0.11723771580345287  | 0.20706064630367418  | 0.24833997343957503 |
+| introductory | 0.3244505494505494   | 0.46723465027036454  | 0.5260989010989011  |
+| interview    | 0.07418408507517418  | 0.1581393589094359   | 0.19801980198019803 |
+| competition  | 0.009354838709677418 | 0.026420890937019968 | 0.03870967741935484 |
