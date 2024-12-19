@@ -93,6 +93,12 @@ Please note that compared to other frameworks, **OpenRLHF consumes more GPU memo
 
 The training time for the two epochs are `5h07m54s` and `5h07m30s` respectively on the 8 GPUs from `r8a100-a[02,03]` respectively. It appears that training on `r8nv-gpu-dist` is faster than on `r8nv-gpu-hw`.
 
+#### Training loss
+
+![Train loss](figures/openrlhf_loss.png)
+
+The training loss is illustrated in the figure above, with a noticeable decrease occurring around epoch 400. This decrease appears to be due to the model memorizing every sample during the first epoch and beginning to overfit in the second epoch. For further discussion, please visit [this page on Zhihu](https://www.zhihu.com/question/649093831).
+
 ### Evaluation
 
 Currently, a total of 3,765 problems from the test set are evaluated, with problems lacking solutions filtered out. For each problem, 10 pieces of code are generated. The `sampling temperature` is set to `0.6`, and `top_p` is set to `0.95`. 
@@ -111,7 +117,7 @@ python -m llmkit_data.cli.eval_apps --samples $SAMPLE_PATH --out $RESULT_PATH --
 
 Inference is conducted using `vllm`, taking `30m43s` for code generation, and approximately 39 minutes for evaluation. 
 
-**Results:**
+#### Results:
 
 The pass@1, pass@5, and pass@10 statistics across different difficulty levels are presented in the table below:
 
