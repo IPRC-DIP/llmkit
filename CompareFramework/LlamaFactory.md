@@ -8,8 +8,8 @@ To test the performance of SFT training of LlamaFactory, we run experiments on t
 
 **Requirements**: 
 We use Python 3.10.13.
-1. Copy source code from `/lustre/S/huangdi/open_for_out/models/LLaMA-Factory.tar`
-2. Run `pip install -r asserts/LlamaFactory/requirements.txt`
+1. Copy source code from `/lustre/S/huangdi/open_for_out/models/LLaMA-Factory.tar` (Commit `bda302fbfbdb114dee7782d405732600d2d73279`, llamafactory-0.8.3.dev0)
+2. Run `pip install -r assets/LlamaFactory/requirements.txt`
 3. Download `flash_attn` and install: https://github.com/Dao-AILab/flash-attention/releases/download/v2.5.0/flash_attn-2.5.0+cu122torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 4. Install LlamaFactory:
 
@@ -22,7 +22,7 @@ pip install -e ".[torch,metrics]"
 ### Training procedure
 
 I run the experiments on 8 `A100-PCIE-40GB` GPUs (`r8a100-a02`).
-The detailed training config is in `asserts/LlamaFactory/dscoderinst_full_sft_ds3.yaml`, please copy it to `examples/train_full` in LlamaFactory repo.
+The detailed training config is in `assets/LlamaFactory/dscoderinst_full_sft_ds3.yaml`, please copy it to `examples/train_full` in LlamaFactory repo.
 
 The bash command for training:
 
@@ -34,7 +34,7 @@ The total training time for the two epochs are `8h58min33s`.
 
 #### Training loss
 
-![Train loss](asserts/LlamaFactory/training_loss.png)
+![Train loss](assets/LlamaFactory/training_loss.png)
 
 Last step loss: 0.3207
 
