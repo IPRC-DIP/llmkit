@@ -30,14 +30,25 @@ The bash command for training:
 llamafactory-cli train examples/train_full/dscoderinst_full_sft_ds3.yaml
 ```
 
-The total training time for the two epochs are `8h58min33s`.
+The total training time for the two epochs are:
+
+Training with packing: `3h33min21s`.
+
+Training without packing: `8h58min33s`.
 
 #### Training loss
 
-![Train loss](assets/LlamaFactory/training_loss.png)
+Training with packing:
+
+![Train loss](assets/LlamaFactory/training_loss_packing.png)
+
+Last step loss: 0.3562
+
+Training without packing:
+
+![Train loss](assets/LlamaFactory/training_loss_no_packing.png)
 
 Last step loss: 0.3207
-
 ### Evaluation
 
 Currently, a total of 3,765 problems from the test set are evaluated, with problems lacking solutions filtered out. For each problem, 10 pieces of code are generated. The `sampling temperature` is set to `0.6`, and `top_p` is set to `0.95`. 
@@ -54,13 +65,23 @@ Inference is conducted using `vllm`, taking `16min35s` for code generation, and 
 
 The pass@1, pass@5, and pass@10 statistics across different difficulty levels are presented in the table below:
 
+Training with packing:
+
+| Difficulty   | pass@1               | pass@5              | pass@10             |
+| ------------ | -------------------- | ------------------- | ------------------- |
+| total        | 0.129933598937583    | 0.23495330845928458 | 0.27915006640106244 |
+| introductory | 0.3531593406593407   | 0.5268674777603349  | 0.5755494505494505  |
+| interview    | 0.08382838283828382  | 0.17878388367937326 | 0.22405573890722405 |
+| competition  | 0.01129032258064516  | 0.043535586277521764| 0.06774193548387097 |
+
+Training without packing:
+
 | Difficulty   | pass@1               | pass@5              | pass@10             |
 | ------------ | -------------------- | ------------------- | ------------------- |
 | total        | 0.131792828685259    | 0.2378675773098084  | 0.2836653386454183  |
 | introductory | 0.3541208791208791   | 0.5332068724925868  | 0.5947802197802198  |
 | interview    | 0.08584525119178585  | 0.18114562779029225 | 0.2258892555922259  |
 | competition  | 0.013870967741935483 | 0.04326676907322069 | 0.06129032258064516 |
-
 
 For comparison, there is an experiment for the original `deepseek-coder-6.7b-instruct` model. 
 
