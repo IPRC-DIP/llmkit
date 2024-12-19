@@ -12,6 +12,8 @@ We use Python 3.10.13.
 2. Run `pip install -r asserts/LlamaFactory/requirements.txt`
 3. Download `flash_attn` and install: https://github.com/Dao-AILab/flash-attention/releases/download/v2.5.0/flash_attn-2.5.0+cu122torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 4. Install LlamaFactory:
+
+
 ```bash
 cd LLaMA-Factory
 pip install -e ".[torch,metrics]"
@@ -23,6 +25,7 @@ I run the experiments on 8 `A100-PCIE-40GB` GPUs (`r8a100-a02`).
 The detailed training config is in `asserts/LlamaFactory/dscoderinst_full_sft_ds3.yaml`, please copy it to `examples/train_full` in LlamaFactory repo.
 
 The bash command for training:
+
 ```bash
 llamafactory-cli train examples/train_full/dscoderinst_full_sft_ds3.yaml
 ```
