@@ -1,5 +1,5 @@
 ---
-title: "OpenRLHF & APPS"
+title: "OpenRLHF"
 subject: Data
 license: CC-BY-4.0
 keywords: datasets
