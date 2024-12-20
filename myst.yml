@@ -24,6 +24,9 @@ project:
         - file: CompareFramework\OpenRLHF.md
         - file: CompareFramework\Torchtune.md
         - file: CompareFramework\TRL.md
+    - title: Reasonor
+      children:
+        - file: Reasoner\QwQ.md
 
   exports:
     - format: typst
@@ -34,6 +37,7 @@ project:
     
 site:
   template: book-theme
-  # options:
+  options:
+      logo_text: LLMKit
   #   favicon: favicon.ico
   #   logo: site_logo.png

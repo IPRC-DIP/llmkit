@@ -1,3 +1,14 @@
+---
+title: "OpenRLHF & APPS"
+subject: Data
+license: CC-BY-4.0
+keywords: datasets
+date: 2024-12-17
+authors:
+  - name: Yaoyu Zhu
+    affiliation: ICT CAS
+---
+
 ## Experiments on APPS dataset
 
 To test the performance of SFT training of OpenRLHF, we run experiments on the APPS dataset. We conduct SFT training on the APPS training dataset, and test the model on APPS test dataset. Below we list configurations of our experiment.
