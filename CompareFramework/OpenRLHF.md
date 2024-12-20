@@ -99,13 +99,13 @@ I also run an experiment without packing with the same GPU configuration, the to
 
 **Train loss with packing**:
 
-![loss_packing](.\assets\OpenRLHF\loss_packing.png)
+![loss_packing](./assets/OpenRLHF/loss_packing.png)
 
 The training loss is illustrated in the figure above, with a noticeable decrease occurring around epoch 400. This decrease appears to be due to the model memorizing every sample during the first epoch and beginning to overfit in the second epoch. For further discussion, please visit [this page on Zhihu](https://www.zhihu.com/question/649093831).
 
 A comparison of **Train loss without packing**:
 
-![loss_no_packing](.\assets\OpenRLHF\loss_no_packing.png)
+![loss_no_packing](./assets/OpenRLHF/loss_no_packing.png)
 
 ### Evaluation
 
