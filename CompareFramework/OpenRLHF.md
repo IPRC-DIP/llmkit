@@ -93,11 +93,19 @@ Please note that compared to other frameworks, **OpenRLHF consumes more GPU memo
 
 The training time for the two epochs are `5h07m54s` and `5h07m30s` respectively on the 8 GPUs from `r8a100-a[02,03]` respectively. It appears that training on `r8nv-gpu-dist` is faster than on `r8nv-gpu-hw`.
 
+I also run an experiment without packing with the same GPU configuration, the total time cost for 2 epochs is `10h20m18s`.
+
 #### Training loss
 
-![Train loss](figures/openrlhf_loss.png)
+**Train loss with packing**:
+
+![loss_packing](.\assets\OpenRLHF\loss_packing.png)
 
 The training loss is illustrated in the figure above, with a noticeable decrease occurring around epoch 400. This decrease appears to be due to the model memorizing every sample during the first epoch and beginning to overfit in the second epoch. For further discussion, please visit [this page on Zhihu](https://www.zhihu.com/question/649093831).
+
+A comparison of **Train loss without packing**:
+
+![loss_no_packing](.\assets\OpenRLHF\loss_no_packing.png)
 
 ### Evaluation
 
@@ -117,6 +125,8 @@ python -m llmkit_data.cli.eval_apps --samples $SAMPLE_PATH --out $RESULT_PATH --
 
 Inference is conducted using `vllm`, taking `30m43s` for code generation, and approximately 39 minutes for evaluation. 
 
+For training with packing, the time cost for code generation is `42m01s` and time for evaluation is around 39 minutes.
+
 #### Results:
 
 The pass@1, pass@5, and pass@10 statistics across different difficulty levels are presented in the table below:
@@ -128,7 +138,14 @@ The pass@1, pass@5, and pass@10 statistics across different difficulty levels ar
 | interview    | 0.08309497616428309  | 0.17761538058567763 | 0.22845617895122847 |
 | competition  | 0.011612903225806452 | 0.04094982078853047 | 0.06129032258064516 |
 
+A comparison of not adding packing:
 
+| Difficulty   | pass@1               | pass@5               | pass@10             |
+| ------------ | -------------------- | -------------------- | ------------------- |
+| total        | 0.1298273572377158   | 0.23352199666940704  | 0.2804780876494024  |
+| introductory | 0.3458791208791208   | 0.5279685592185592   | 0.5934065934065934  |
+| interview    | 0.08533186651998534  | 0.17669571189923228  | 0.22185551888522184 |
+| competition  | 0.013870967741935483 | 0.041935483870967745 | 0.06129032258064516 |
 
 For comparison, I also run an experiment for the original `deepseek-coder-6.7b-instruct` model. Its inference stage costs `47m50s` and evaluation stage costs around 53 minutes. The inference is slower since it sometimes generates additional text, but the reason for slower evaluation stage is currently unknown. The pass@k statistics are shown in the following table:
 
