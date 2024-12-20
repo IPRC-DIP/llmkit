@@ -19,14 +19,14 @@ project:
         - file: Data/contribution.md
     - title: Comparing   Different  LLM  Training   Frameworks
       children:
-        - file: CompareFramework\intro.md
-        - file: CompareFramework\LlamaFactory.md
-        - file: CompareFramework\OpenRLHF.md
-        - file: CompareFramework\Torchtune.md
-        - file: CompareFramework\TRL.md
+        - file: CompareFramework/intro.md
+        - file: CompareFramework/LlamaFactory.md
+        - file: CompareFramework/OpenRLHF.md
+        - file: CompareFramework/Torchtune.md
+        - file: CompareFramework/TRL.md
     - title: Reasonor
       children:
-        - file: Reasoner\QwQ.md
+        - file: Reasoner/QwQ.md
 
   exports:
     - format: typst
