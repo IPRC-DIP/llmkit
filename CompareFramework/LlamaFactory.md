@@ -1,8 +1,8 @@
 ---
 title: "LlamaFactory"
-subject: Data
+subject: Training
 license: CC-BY-4.0
-keywords: datasets
+keywords: training
 date: 2024-12-18
 authors:
   - name: Yutong Wu

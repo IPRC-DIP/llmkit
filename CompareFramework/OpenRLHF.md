@@ -1,8 +1,8 @@
 ---
 title: "OpenRLHF"
-subject: Data
+subject: Training
 license: CC-BY-4.0
-keywords: datasets
+keywords: training
 date: 2024-12-17
 authors:
   - name: Yaoyu Zhu
