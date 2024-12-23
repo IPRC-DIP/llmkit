@@ -1,5 +1,5 @@
 ---
-title: "Introudction"
+title: "Introduction"
 subject: Training
 license: CC-BY-4.0
 date: 2024-12-04

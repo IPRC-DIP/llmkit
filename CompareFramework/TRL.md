@@ -3,7 +3,7 @@ title: "TRL"
 subject: Training
 license: CC-BY-4.0
 keywords: training
-date: 2024-12-03
+date: 2024-12-22
 authors:
   - name: Ziyuan Nan
     email: nanziyuan21s@ict.ac.cn
@@ -112,7 +112,7 @@ The script launched by `accelerate` is a copy of [sft.py](https://github.com/hug
 ```
 The key change is adding `padding_side="right"` to avoid a warning. However, due to packing, its impact may be limited.
 
-Before running training commands, you should first set up some environment variables:
+Before running the training commands, download the configuration file and training script, place them in `$result`, and then set the necessary environment variables to execute the commands directly."
 
 ```bash
 base_model=/lustre/S/huangdi/open_for_out/models/deepseek-coder-6.7b-instruct
@@ -240,6 +240,8 @@ else
 fi
 ```
 
+The TensorBoard logs can be found in the `${result}/model/runs`.
+
 ## Evaluation
 
 llmkit-data offers tools for performing inference and evaluation. Here's how to use them:
@@ -298,6 +300,13 @@ If you encounter a non-functional process bar, it might be related to the report
 
 As the table clearly shows, the 2-node configuration significantly outperforms the 1-node configuration in terms of runtime and throughput (samples/second and steps/second), despite using the same total number of GPUs. The difference in loss is negligible.
 
+:::{tip}
+Packing is a critical factor for performance.
+Without packing, the training runtime is 53,587.42 seconds, with 3.903 samples processed per second, 0.015 steps completed per second, and a training loss of 0.2179.
+***However, a lower loss does not indicate a better result; in fact, the final result is even worse than the base model.***
+This configuration only modifies the packing strategy compared to the 1 node × 8 GPU setup.
+:::
+
 **1 Node * 8 A100-40G**
 
 | Difficulty   | pass@1                | pass@5                | pass@10              |
@@ -337,9 +346,15 @@ As the table clearly shows, the 2-node configuration significantly outperforms t
 While the provided script offers a starting point for training large language models using TRL, further investigation is needed to optimize model performance.
 The evaluation benchmarks haven't shown a significant improvement after training.
 
+**Download**
+
 Here are the resources included in this guide:
 - [requirements](./assets/TRL/requirements.txt)
 - [sft](./assets/TRL/sft.py)
 - [deepspeed config](./assets/TRL/deepspeed_zero3.yaml)
 - [single node](./assets/TRL/singlenode_run.sh)
 - [multi node](./assets/TRL/multinode_run.sh)
+
+For SLURM scripts, you should copy the following templates: `/tools/template.gpu.slurm` for single-node jobs, 
+`/tools/template.multi-gpus.slurm` & `/tools/template.multi-gpus-task.sh` for multi-node jobs.
+Follow the instructions within the slurm scripts to configure them, and execute your script at the job step.
