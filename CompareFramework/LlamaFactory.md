@@ -1,3 +1,14 @@
+---
+title: "LlamaFactory"
+subject: Training
+license: CC-BY-4.0
+keywords: training
+date: 2024-12-18
+authors:
+  - name: Yutong Wu
+    affiliation: ICT CAS
+---
+
 ## Experiments on APPS dataset
 
 To test the performance of SFT training of LlamaFactory, we run experiments on the APPS dataset. We conduct SFT training on the APPS training dataset, and test the model on APPS test dataset. Below we list configurations of our experiment.
