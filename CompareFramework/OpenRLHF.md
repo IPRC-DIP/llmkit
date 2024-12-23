@@ -28,6 +28,8 @@ To test the performance of SFT training of OpenRLHF, we run experiments on the A
 - torch==2.5.1+cu121
 - python 3.11.10
 
+The full packages is provided [here](./assets/OpenRLHF/requirements.txt).
+
 About package installation: The typical sequence is as follows: First, install `torch`. Next, download and install the appropriate version of `flash-attn` from [the official releases page](https://github.com/Dao-AILab/flash-attention/releases) (installing `flash-attn` through `pip` directly might get stuck). It appears that the wheels should have **`cxxabiFALSE`** to function properly. Finally, install the remaining packages, for which running `pip install openrlhf vllm` should suffice.
 
 ### Training procedure

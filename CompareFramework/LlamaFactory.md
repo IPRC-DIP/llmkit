@@ -19,7 +19,15 @@ To test the performance of SFT training of LlamaFactory, we run experiments on t
 
 **Requirements**: 
 We use Python 3.10.13.
-1. Copy source code from `/lustre/S/huangdi/open_for_out/models/LLaMA-Factory.tar` (Commit `bda302fbfbdb114dee7782d405732600d2d73279`, llamafactory-0.8.3.dev0)
+1. Clone source code:
+
+```bash
+git clone https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+# We use version 0.8.3.dev0
+git checkout bda302fbfbdb114dee7782d405732600d2d73279
+```
+
 2. Run `pip install -r assets/LlamaFactory/requirements.txt`
 3. Download `flash_attn` and install: https://github.com/Dao-AILab/flash-attention/releases/download/v2.5.0/flash_attn-2.5.0+cu122torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 4. Install LlamaFactory:
