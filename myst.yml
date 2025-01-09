@@ -27,6 +27,12 @@ project:
     - title: Reasonor
       children:
         - file: Reasoner/QwQ.md
+    - title: Papers
+      children:
+        - file: Papers/SelfImprovement.md
+    - title: LMTK
+      children:
+        - file: lmtk/serve.md
 
   exports:
     - format: typst
