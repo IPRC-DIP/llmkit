@@ -27,6 +27,7 @@ project:
     - title: Reasonor
       children:
         - file: Reasoner/QwQ.md
+        - file: Reasoner/sft2grpo.md
     - title: Papers
       children:
         - file: Papers/SelfImprovement.md
