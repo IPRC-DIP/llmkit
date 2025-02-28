@@ -24,12 +24,20 @@ This project extends the `vllm` serving functionality to support **data parallel
 ## **Usage**
 
 ### **1. Start the Server**
+To install llmkit_data, using
+```
+git clone http://62.234.201.16/llm-kit/Data.git
+pip install -e Data
+```
+
 To start the server, use the following command:
 
 ```bash
 export CUDA_VISIBLE_DEVICES=0,1,2,3  # Set visible GPUs
-python -m llmkit_data.cli.serve /path/to/model --dtype auto --api-key token-abc123 -dp 4
+python -m llmkit_data.cli.serve --config {config_path} --log-dir {log_directory}
 ```
+
+config_file's example can be found in `http://62.234.201.16/llm-kit/Data/blob/main/examples/config.yaml`
 
 #### **Parameters**
 - `/path/to/model`: Path to the model to be served.
